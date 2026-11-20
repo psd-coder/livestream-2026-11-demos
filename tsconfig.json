@@ -17,6 +17,7 @@
   },
   "include": [
     "01-nanotags",
-    "02-typed-channel"
+    "02-typed-channel",
+    "03-datavolve"
   ]
 }

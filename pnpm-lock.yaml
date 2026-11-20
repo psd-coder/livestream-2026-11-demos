@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      datavolve:
+        specifier: ^0.9.1
+        version: 0.9.1
       nanostores:
         specifier: ^1.5.5
         version: 1.5.5
@@ -275,6 +278,9 @@ packages:
     engines: {node: '>=16.20.0'}
     cpu: [x64]
     os: [win32]
+
+  datavolve@0.9.1:
+    resolution: {integrity: sha512-pm6enymz+b310jIx8iPAAVG5HcO+iSLsMkc5/1AYLqBOKSf8HXM0N6X4/TRxP8D8Hpc3WutxyIi5T5IYrZ4Wrw==}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -607,6 +613,8 @@ snapshots:
 
   '@typescript/typescript-win32-x64@7.0.2':
     optional: true
+
+  datavolve@0.9.1: {}
 
   detect-libc@2.1.2: {}
 

@@ -55,3 +55,15 @@ stands in for real work.
 | `04-requests.ts` | Request types: params in, result out |
 | `05-worker.ts` | Answering requests with `handle()`, stopping on abort |
 | `06-page.ts` | Sending a typed request, then giving up with `AbortSignal.timeout()` |
+
+## 03-datavolve
+
+[datavolve](https://datavolve.psdcoder.dev/) upgrades old persisted data, like last year's
+localStorage, to today's shape through a chain of small, typed steps. 258 B, no dependencies.
+
+```sh
+node 03-datavolve/demo.ts
+```
+
+One file: a three-step chain, where the version passed to `run()` comes from, and what happens
+with data that has no version, old data, and data from a newer build.

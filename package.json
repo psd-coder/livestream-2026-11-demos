@@ -7,6 +7,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "datavolve": "^0.9.1",
     "nanostores": "^1.5.5",
     "nanotags": "^0.17.0",
     "typed-channel": "^0.11.0"
