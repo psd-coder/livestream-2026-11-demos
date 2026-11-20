@@ -16,6 +16,7 @@
     "types": []
   },
   "include": [
-    "01-nanotags"
+    "01-nanotags",
+    "02-typed-channel"
   ]
 }

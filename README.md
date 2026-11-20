@@ -37,3 +37,21 @@ pnpm demo
 ```
 
 Then try `composer.max = 20` in the console: the counter follows the new limit.
+
+## 02-typed-channel
+
+[typed-channel](https://typed-channel.psdcoder.dev/) gives you type-safe messages and
+requests between contexts: the main thread and a worker, iframes, tabs, or an in-page event
+bus. 271 B for messages, 994 B with requests (brotli).
+
+These files are meant to be read in the editor. The worker is schematic: `heavyColorMath()`
+stands in for real work.
+
+| File | Shows |
+| ---- | ----- |
+| `01-messages.ts` | The contract: message name → payload type |
+| `02-event-bus.ts` | A transport and a channel: `on()` and `emit()` |
+| `03-typo.ts` | Five mistakes the compiler catches: uncomment one line at a time |
+| `04-requests.ts` | Request types: params in, result out |
+| `05-worker.ts` | Answering requests with `handle()`, stopping on abort |
+| `06-page.ts` | Sending a typed request, then giving up with `AbortSignal.timeout()` |
