@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:," />
+    <title>nanotags · x-composer</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #111318; --panel: #1b1e26; --line: #2c313d;
+        --text: #eef0f4; --muted: #9aa3b5; --accent: #ff4f3a; --err: #ff6b6b;
+        font: 22px/1.45 ui-sans-serif, system-ui, -apple-system, sans-serif;
+        background: var(--bg); color: var(--text);
+      }
+      body { max-width: 760px; margin: 0 auto; padding: 48px 32px; }
+      h1 { margin: 0 0 4px; font-size: 1.6rem; }
+      p { margin: 0 0 28px; color: var(--muted); }
+      code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.85em; }
+
+      x-composer {
+        display: grid; grid-template-columns: auto auto 1fr auto auto; gap: 12px; align-items: center;
+        padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      }
+      x-composer textarea {
+        grid-column: 1 / -1; resize: vertical; padding: 14px;
+        font: inherit; color: inherit; background: var(--bg);
+        border: 1px solid var(--line); border-radius: 10px;
+      }
+      x-composer textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+      x-composer button {
+        font: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer;
+        padding: 8px 14px; border-radius: 999px;
+        color: var(--text); background: #2a2f3b; border: 1px solid #3a4150;
+      }
+      x-composer [data-ref="post"] { background: var(--accent); border-color: var(--accent); color: #fff; padding: 8px 22px; }
+      x-composer button:disabled { opacity: 0.4; cursor: default; }
+      x-composer output { grid-column: 4; font-variant-numeric: tabular-nums; color: var(--muted); }
+      x-composer output[data-over="true"] { color: var(--err); font-weight: 700; }
+
+      h2 { margin: 36px 0 12px; font-size: 0.9rem; color: var(--muted); }
+      #feed { list-style: none; margin: 0; padding: 0; }
+      #feed li { padding: 14px 18px; margin-bottom: 10px; background: var(--panel); border-radius: 12px; white-space: pre-wrap; }
+      #feed:empty::before { content: "Nothing posted yet."; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <h1>&lt;x-composer&gt;</h1>
+    <p>The whole component. In the console: <code>composer.max = 20</code></p>
+
+    <!-- The same markup as step 1 -->
+    <x-composer max="280" draft-key="livestream-draft">
+      <textarea data-ref="textarea" rows="4" placeholder="What's happening?"></textarea>
+
+      <button type="button" data-ref="tags">#nanotags</button>
+      <button type="button" data-ref="tags">#webcomponents</button>
+
+      <output data-ref="left">280</output>
+      <button type="button" data-ref="post">Post</button>
+    </x-composer>
+
+    <h2>Posted</h2>
+    <ol id="feed"></ol>
+
+    <script type="module">
+      // The exact code from 05-demo.ts: defining the element upgrades the markup above.
+      import "./05-demo.ts";
+
+      // The page listens to the component's "x-composer:post" event like to any DOM event.
+      const feed = document.querySelector("#feed");
+      document.addEventListener("x-composer:post", (e) => {
+        const item = document.createElement("li");
+        item.textContent = e.detail.text;
+        feed.prepend(item);
+      });
+
+      // A shortcut for the console demo.
+      window.composer = document.querySelector("x-composer");
+    </script>
+  </body>
+</html>

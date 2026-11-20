@@ -1,0 +1,20 @@
+<!--
+  Step 1 · The markup
+
+  This is what the server sends: Astro, Rails, a static file, anything.
+  It renders, it's indexable, and there's no JavaScript yet.
+
+  - Attributes are the component's inputs: max, draft-key.
+  - data-ref marks the elements the component will work with.
+  - Two buttons share data-ref="tags": that's a list.
+-->
+
+<x-composer max="280" draft-key="livestream-draft">
+  <textarea data-ref="textarea" rows="4" placeholder="What's happening?"></textarea>
+
+  <button type="button" data-ref="tags">#nanotags</button>
+  <button type="button" data-ref="tags">#webcomponents</button>
+
+  <output data-ref="left">280</output>
+  <button type="button" data-ref="post">Post</button>
+</x-composer>

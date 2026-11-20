@@ -10,4 +10,30 @@ Requires Node.js 22.18+ (it runs TypeScript files directly) and pnpm.
 
 ```sh
 pnpm install
+pnpm typecheck
 ```
+
+## 01-nanotags
+
+[nanotags](https://nanotags.psdcoder.dev/) is a thin wrapper around Custom Elements with
+Nano Stores reactivity, under 2.5 KB. No Shadow DOM: it adds behavior to HTML the server has
+already rendered.
+
+The demo builds one component, `<x-composer>`: a post box with a character counter and tag
+buttons.
+
+| File | Shows |
+| ---- | ----- |
+| `01-markup.html` | The server-rendered HTML: attributes as inputs, `data-ref` marking the parts |
+| `02-props.ts` | `define()` and `withProps()`: attributes parsed into Nano Stores atoms |
+| `03-refs.ts` | `withRefs()`: typed elements, checked against the markup |
+| `04-bind-events-effects.ts` | Internal state with `ctx.bind()`, `ctx.on()` and `ctx.effect()` |
+| `05-demo.ts` | The complete component: tag buttons, `ctx.emit()`, `computed()` |
+
+Run the complete component in the browser:
+
+```sh
+pnpm demo
+```
+
+Then try `composer.max = 20` in the console: the counter follows the new limit.

@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      nanostores:
+        specifier: ^1.5.5
+        version: 1.5.5
+      nanotags:
+        specifier: ^0.17.0
+        version: 0.17.0(nanostores@1.5.5)
     devDependencies:
       typescript:
         specifier: ^7.0.2
@@ -139,6 +146,9 @@ packages:
 
   '@rolldown/pluginutils@1.1.1':
     resolution: {integrity: sha512-glFIJDvLNDtJhT9qrMFWLPbvS+skxgt4L0K8Ei2YtnhPysAJnsI7nyxSJxKj4ADeKX0OLjC4ntRkwpLOoS3rwA==}
+
+  '@standard-schema/spec@1.1.0':
+    resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
   '@tybys/wasm-util@0.10.5':
     resolution: {integrity: sha512-dOGOPxlaNV+G046mZzN+9C0dAcQZeSKcXiVaM0TYy/LM4ttTmgSBDxYfovcYI8Em3+eAbiAYpvWLOv8+ZVRJKA==}
@@ -360,6 +370,15 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  nanostores@1.5.5:
+    resolution: {integrity: sha512-FixtE239Gl6Gz0ZGCK0WzvNwObNCIwVT+L7zQcf1QgcA6AzBxblzqe9OT88qiucNkhsjSOqiogSaF5jVbJiqSA==}
+    engines: {node: ^20.0.0 || >=22.0.0}
+
+  nanotags@0.17.0:
+    resolution: {integrity: sha512-ksXY4Ky9/pb7Bo/skaKu9mO4kNO4czQIp00gVIpSR7+FfPcVwZTA6X4TGLuheb6ZQbU6+x9faWS80EGXgfBmdA==}
+    peerDependencies:
+      nanostores: ^1.1.1
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -516,6 +535,8 @@ snapshots:
 
   '@rolldown/pluginutils@1.1.1': {}
 
+  '@standard-schema/spec@1.1.0': {}
+
   '@tybys/wasm-util@0.10.5':
     dependencies:
       tslib: 2.9.1
@@ -640,6 +661,13 @@ snapshots:
       lightningcss-win32-x64-msvc: 1.33.0
 
   nanoid@3.3.20: {}
+
+  nanostores@1.5.5: {}
+
+  nanotags@0.17.0(nanostores@1.5.5):
+    dependencies:
+      '@standard-schema/spec': 1.1.0
+      nanostores: 1.5.5
 
   picocolors@1.1.1: {}
 

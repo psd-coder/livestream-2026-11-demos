@@ -2,6 +2,14 @@
   "name": "x-livestream-demos",
   "private": true,
   "type": "module",
+  "scripts": {
+    "demo": "vite --open /01-nanotags/05-demo.html",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "nanostores": "^1.5.5",
+    "nanotags": "^0.17.0"
+  },
   "devDependencies": {
     "typescript": "^7.0.2",
     "vite": "^8.3.8"
